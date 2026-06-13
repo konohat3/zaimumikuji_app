@@ -4,68 +4,88 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>財務おみくじ</title>
+<title>おみくじ</title>
 
 <style>
-body {
-  margin: 0;
-  padding: 30px 20px;
-  text-align: center;
-  background: #ffffff;
+
+body{
+    margin:0;
+    padding:30px 20px;
+    text-align:center;
+    background:#ffffff;
 }
 
-#topImage {
-  width: 100%;
-  max-width: 700px;
-  margin-bottom: 30px;
+#topImage{
+    width:100%;
+    max-width:700px;
+    margin-bottom:30px;
 }
 
-#diceImage {
-  width: 120px;
-  height: auto;
-  margin-bottom: 30px;
+#diceImage{
+    width:120px;
+    margin-bottom:30px;
 }
 
-#drawButton {
-  background: #333333;
-  color: #ffffff;
-  border: none;
-  border-radius: 999px;
-  padding: 15px 40px;
-  font-size: 20px;
-  cursor: pointer;
+#drawButton{
+    background:#333;
+    color:#fff;
+    border:none;
+    border-radius:999px;
+    padding:15px 40px;
+    font-size:20px;
+    cursor:pointer;
 }
+
 </style>
 </head>
 
 <body>
 
-<img id="topImage" src="static/top.png" alt="トップ画像">
+<img
+id="topImage"
+src="static/top.png"
+alt="トップ画像">
 
 <br>
 
-<img id="diceImage" src="static/dice_stop.png" alt="サイコロ">
+<img
+id="diceImage"
+src="static/dice_stop.png"
+alt="サイコロ">
 
 <br>
 
-<button id="drawButton">おみくじを引く</button>
+<button id="drawButton">
+おみくじを引く
+</button>
 
 <script>
-const button = document.getElementById("drawButton");
-const dice = document.getElementById("diceImage");
 
-button.addEventListener("click", function() {
-  button.style.display = "none";
+document.getElementById("drawButton")
+.addEventListener("click", function(){
 
-  dice.src = "static/saikoro.gif";
+    const dice =
+    document.getElementById("diceImage");
 
-  const randomNum = Math.floor(Math.random() * 100) + 1;
-  sessionStorage.setItem("omikujiNumber", randomNum);
+    dice.src = "static/saikoro.gif";
 
-  setTimeout(function() {
-    window.location.href = "draw.html";
-  }, 3000);
+    const randomNum =
+    Math.floor(Math.random() * 100) + 1;
+
+    sessionStorage.setItem(
+      "omikujiNumber",
+      randomNum
+    );
+
+    setTimeout(function(){
+
+        window.location.href =
+        "draw.html";
+
+    },3000);
+
 });
+
 </script>
 
 </body>
