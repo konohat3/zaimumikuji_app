@@ -35,17 +35,6 @@ body {
   font-size: 20px;
   cursor: pointer;
 }
-
-#resultArea {
-  display: none;
-  margin-top: 40px;
-}
-
-#resultImage {
-  width: 100%;
-  max-width: 700px;
-  height: auto;
-}
 </style>
 </head>
 
@@ -61,30 +50,20 @@ body {
 
 <button id="drawButton">おみくじを引く</button>
 
-<div id="resultArea">
-  <img id="resultImage" src="" alt="結果">
-</div>
-
 <script>
 const button = document.getElementById("drawButton");
 const dice = document.getElementById("diceImage");
-const resultArea = document.getElementById("resultArea");
-const resultImage = document.getElementById("resultImage");
 
 button.addEventListener("click", function() {
   button.style.display = "none";
-  resultArea.style.display = "none";
 
-  dice.style.display = "inline-block";
   dice.src = "static/saikoro.gif";
 
+  const randomNum = Math.floor(Math.random() * 100) + 1;
+  sessionStorage.setItem("omikujiNumber", randomNum);
+
   setTimeout(function() {
-    const randomNum = Math.floor(Math.random() * 100) + 1;
-
-    resultImage.src = "static/" + randomNum + ".png";
-
-    dice.style.display = "none";
-    resultArea.style.display = "block";
+    window.location.href = "draw.html";
   }, 3000);
 });
 </script>
