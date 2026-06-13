@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -8,107 +7,86 @@
 <title>財務おみくじ</title>
 
 <style>
-
-body{
-    margin:0;
-    padding:30px 20px;
-    text-align:center;
-    background:#ffffff;
+body {
+  margin: 0;
+  padding: 30px 20px;
+  text-align: center;
+  background: #ffffff;
 }
 
-#topImage{
-    width:100%;
-    max-width:700px;
-    margin-bottom:30px;
+#topImage {
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 30px;
 }
 
-#diceImage{
-    width:120px;
-    margin-bottom:30px;
+#diceImage {
+  width: 120px;
+  height: auto;
+  margin-bottom: 30px;
 }
 
-#drawButton{
-    background:#333;
-    color:#fff;
-    border:none;
-    border-radius:999px;
-    padding:15px 40px;
-    font-size:20px;
-    cursor:pointer;
+#drawButton {
+  background: #333333;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 15px 40px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-#resultArea{
-    display:none;
-    margin-top:40px;
+#resultArea {
+  display: none;
+  margin-top: 40px;
 }
 
-#resultImage{
-    width:100%;
-    max-width:700px;
+#resultImage {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
 }
-
 </style>
-
 </head>
 
 <body>
 
-<img
-id="topImage"
-src="static/top.png"
-alt="トップ画像">
+<img id="topImage" src="static/top.png" alt="トップ画像">
 
 <br>
 
-<img
-id="diceImage"
-src="static/dice_stop.png"
-alt="サイコロ">
+<img id="diceImage" src="static/dice_stop.png" alt="サイコロ">
 
 <br>
 
-<button id="drawButton">
-おみくじを引く
-</button>
+<button id="drawButton">おみくじを引く</button>
 
 <div id="resultArea">
-
-<img
-id="resultImage"
-src=""
-alt="結果">
-
+  <img id="resultImage" src="" alt="結果">
 </div>
 
 <script>
-
 const button = document.getElementById("drawButton");
 const dice = document.getElementById("diceImage");
 const resultArea = document.getElementById("resultArea");
 const resultImage = document.getElementById("resultImage");
 
-button.addEventListener("click", function(){
+button.addEventListener("click", function() {
+  button.style.display = "none";
+  resultArea.style.display = "none";
 
-    button.style.display = "none";
+  dice.style.display = "inline-block";
+  dice.src = "static/saikoro.gif";
 
-    dice.src = "static/saikoro.gif";
+  setTimeout(function() {
+    const randomNum = Math.floor(Math.random() * 100) + 1;
 
-    setTimeout(function(){
+    resultImage.src = "static/" + randomNum + ".png";
 
-        const randomNum =
-        Math.floor(Math.random() * 100) + 1;
-
-        resultImage.src =
-        "static/" + randomNum + ".png";
-
-        resultArea.style.display = "block";
-
-        dice.style.display = "none";
-
-    },3000);
-
+    dice.style.display = "none";
+    resultArea.style.display = "block";
+  }, 3000);
 });
-
 </script>
 
 </body>
