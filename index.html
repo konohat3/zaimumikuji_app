@@ -3,16 +3,64 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>財務みくじ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>財務おみくじ</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:30px 20px;
+    text-align:center;
+    background:#ffffff;
+    font-family:"Yu Gothic",sans-serif;
+}
+
+#topImage{
+    width:100%;
+    max-width:600px;
+    margin-bottom:30px;
+}
+
+#diceImage{
+    width:140px;
+    margin-bottom:30px;
+}
+
+button{
+    background:#333333;
+    color:white;
+    border:none;
+    border-radius:999px;
+    padding:15px 40px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>財務みくじ</h1>
+<img
+id="topImage"
+src="static/top.png"
+alt="トップ画像">
 
-<p>ここにトップ画像が入ります</p>
+<br>
 
-<button>おみくじを引く</button>
+<img
+id="diceImage"
+src="static/dice_stop.png"
+alt="サイコロ">
+
+<br>
+
+<button id="drawButton">
+おみくじを引く
+</button>
 
 </body>
 </html>
