@@ -4,43 +4,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>おみくじ結果</title>
+<title>結果</title>
 
 <style>
-body {
-  margin: 0;
-  padding: 30px 20px;
-  text-align: center;
-  background: #ffffff;
+
+body{
+    margin:0;
+    padding:30px 20px;
+    text-align:center;
+    background:#ffffff;
 }
 
-#resultImage {
-  width: 100%;
-  max-width: 700px;
-  height: auto;
-  animation: fadeUp 1.2s ease forwards;
+#resultImage{
+    width:100%;
+    max-width:700px;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 </style>
 </head>
 
 <body>
 
-<img id="resultImage" src="" alt="おみくじ結果">
+<img
+id="resultImage"
+src=""
+alt="おみくじ結果">
 
 <script>
-const number = sessionStorage.getItem("omikujiNumber") || 1;
-document.getElementById("resultImage").src = "static/" + number + ".png";
+
+const number =
+sessionStorage.getItem("omikujiNumber");
+
+document
+.getElementById("resultImage")
+.src =
+"static/" + number + ".png";
+
 </script>
 
 </body>
