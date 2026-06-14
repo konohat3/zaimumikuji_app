@@ -62,10 +62,6 @@ alt="サイコロ">
 
 <script>
 
-// GIF事前読み込み
-const preloadGif = new Image();
-preloadGif.src = "static/saikoro.gif";
-
 document
 .getElementById("drawButton")
 .addEventListener("click", function(){
@@ -78,10 +74,6 @@ document
 
     button.disabled = true;
 
-    // GIF再生
-    dice.src = "static/saikoro.gif";
-
-    // 結果番号決定
     const randomNum =
     Math.floor(Math.random() * 100) + 1;
 
@@ -90,7 +82,17 @@ document
         randomNum
     );
 
-    // 4秒後に結果画面
+    // GIFを確実に再読込
+    dice.src = "";
+
+    requestAnimationFrame(() => {
+
+        dice.src =
+        "static/saikoro.gif?ts=" +
+        Date.now();
+
+    });
+
     setTimeout(function(){
 
         window.location.href =
