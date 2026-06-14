@@ -73,11 +73,8 @@ document
     const randomNum = Math.floor(Math.random() * 100) + 1;
     sessionStorage.setItem("omikujiNumber", randomNum);
 
-    dice.src = "";
-
-    setTimeout(function(){
-        dice.src = "static/saikoro.gif?ts=" + Date.now();
-    }, 100);
+    // サイコロ画像は消さずに、GIFへ差し替える
+    dice.src = "static/saikoro.gif?v=" + Date.now();
 
     setTimeout(function(){
         window.location.href = "draw.html";
